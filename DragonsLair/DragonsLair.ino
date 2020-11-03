@@ -1,7 +1,7 @@
 
 const Color FIELD_COLOR = makeColorHSB(200, 60, 100);
 
-#define MAX_GAME_TIME 240000 //four Minutes
+#define MAX_GAME_TIME 300000 //five Minutes
 #define MAX_TIME_BETWEEN_ATTACKS 10000
 #define MIN_TIME_BETWEEN_ATTACKS 5000
 Timer gameTimer;
@@ -435,6 +435,12 @@ void playerDisplay() {
     scoreDisplay();
   } else {
     setColor(FIELD_COLOR);
+    if (luck < 3) {
+      setColorOnFace(OFF, 1);
+    }
+    if (luck == 1) {
+      setColorOnFace(OFF, 3);
+    }
     setColorOnFace(RUBY, 0);
     setColorOnFace(EMERALD, 2);
     setColorOnFace(YELLOW, 4);
